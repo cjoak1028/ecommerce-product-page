@@ -26,8 +26,8 @@
       }
     </style> -->
   </head>
-  <body class="font-kumbh">
-    <header class="p-6">
+  <body class="font-kumbh md:px-20 pb-17.5">
+    <header class="p-6 md:px-0 md:py-7 border-b border-grey-100 md:mb-12">
       <nav class="flex items-center justify-between">
         <div class="flex gap-4">
           <button class="cursor-pointer">
@@ -35,20 +35,20 @@
           </button>
           <img src="./images/logo.svg" alt="Sneakers logo" />
         </div>
-        <div class="flex gap-6">
+        <div class="flex gap-6 md:gap-12">
           <button class="cursor-pointer">
             <img src="./images/icon-cart.svg" alt="" />
           </button>
           <img
             src="./images/image-avatar.png"
             alt="User profile photo"
-            class="w-6"
+            class="w-6 md:w-12.5"
           />
         </div>
       </nav>
     </header>
     <main>
-      <div class="h-75 relative overflow-hidden">
+      <div class="h-75 md:h-72.5 relative overflow-hidden mb-6 md:mb-12">
         <div class="absolute size-full flex items-center justify-between px-4">
           <button
             class="bg-white size-10 rounded-full flex justify-center items-center cursor-pointer"
@@ -62,26 +62,32 @@
           </button>
         </div>
         <img
-          class="size-full object-cover object-center"
+          class="size-full object-cover object-center md:object-[0%_65%] md:rounded-2xl"
           src="./images/image-product-1.jpg"
           alt="Fall limited edition sneakers against orange background"
         />
       </div>
-      <div class="p-6 mb-11.5">
+      <div class="px-6 md:px-0">
         <p
-          class="uppercase text-grey-500 font-bold text-xs tracking-widest mb-4"
+          class="uppercase text-grey-500 font-bold text-xs md:text-[0.8125rem] tracking-widest mb-4 md:mb-6"
         >
           Sneaker company
         </p>
-        <h1 class="text-[1.75rem]/8 font-bold mb-4">
+        <h1
+          class="text-[1.75rem]/8 md:text-[2.75rem]/12 font-bold mb-4 md:mb-6"
+        >
           Fall Limited Edition Sneakers
         </h1>
-        <p class="text-[0.9375rem]/6.5 text-grey-500 mb-8">
+        <p
+          class="text-[0.9375rem]/6.5 md:text-base/6.5 text-grey-500 mb-8 md:mb-6"
+        >
           These low-profile sneakers are your perfect casual wear companion.
           Featuring a durable rubber outer sole, they’ll withstand everything
           the weather can offer.
         </p>
-        <div class="flex justify-between items-center mb-8">
+        <div
+          class="flex md:flex-col justify-between items-center md:items-start md:gap-2 mb-8 md:mb-6"
+        >
           <div class="flex gap-4 items-center">
             <p class="text-[1.75rem]/8 font-bold">$125.00</p>
             <p
@@ -94,32 +100,34 @@
             $250.00
           </p>
         </div>
-        <div
-          class="flex justify-between items-center h-14 bg-grey-50 rounded-[0.625rem] px-[1.125rem] mb-4"
-        >
-          <button class="cursor-pointer">
-            <img src="./images/icon-minus.svg" alt="" />
-          </button>
-          <p class="text-base/6.5 font-bold">0</p>
-          <button class="cursor-pointer">
-            <img src="./images/icon-plus.svg" alt="" />
+        <div class="flex flex-col md:flex-row gap-4">
+          <div
+            class="flex justify-between items-center h-14 bg-grey-50 rounded-[0.625rem] px-[1.125rem] md:w-1/2"
+          >
+            <button class="cursor-pointer">
+              <img src="./images/icon-minus.svg" alt="" />
+            </button>
+            <p class="text-base/6.5 font-bold">0</p>
+            <button class="cursor-pointer">
+              <img src="./images/icon-plus.svg" alt="" />
+            </button>
+          </div>
+          <button
+            class="h-14 bg-orange-500 w-full flex justify-center items-center gap-4 rounded-[0.625rem] cursor-pointer md:w-1/2"
+          >
+            <svg
+              class="fill-grey-950 h-4"
+              viewBox="0 0 22 20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M20.925 3.641H3.863L3.61.816A.896.896 0 0 0 2.717 0H.897a.896.896 0 1 0 0 1.792h1l1.031 11.483c.073.828.52 1.726 1.291 2.336C2.83 17.385 4.099 20 6.359 20c1.875 0 3.197-1.87 2.554-3.642h4.905c-.642 1.77.677 3.642 2.555 3.642a2.72 2.72 0 0 0 2.717-2.717 2.72 2.72 0 0 0-2.717-2.717H6.365c-.681 0-1.274-.41-1.53-1.009l14.321-.842a.896.896 0 0 0 .817-.677l1.821-7.283a.897.897 0 0 0-.87-1.114ZM6.358 18.208a.926.926 0 0 1 0-1.85.926.926 0 0 1 0 1.85Zm10.015 0a.926.926 0 0 1 0-1.85.926.926 0 0 1 0 1.85Zm2.021-7.243-13.8.81-.57-6.341h15.753l-1.383 5.53Z"
+                fill-rule="nonzero"
+              />
+            </svg>
+            <p class="text-base/6.5 font-bold">Add to cart</p>
           </button>
         </div>
-        <button
-          class="h-14 bg-orange-500 w-full flex justify-center items-center gap-4 rounded-[0.625rem] cursor-pointer"
-        >
-          <svg
-            class="fill-grey-950 h-4"
-            viewBox="0 0 22 20"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M20.925 3.641H3.863L3.61.816A.896.896 0 0 0 2.717 0H.897a.896.896 0 1 0 0 1.792h1l1.031 11.483c.073.828.52 1.726 1.291 2.336C2.83 17.385 4.099 20 6.359 20c1.875 0 3.197-1.87 2.554-3.642h4.905c-.642 1.77.677 3.642 2.555 3.642a2.72 2.72 0 0 0 2.717-2.717 2.72 2.72 0 0 0-2.717-2.717H6.365c-.681 0-1.274-.41-1.53-1.009l14.321-.842a.896.896 0 0 0 .817-.677l1.821-7.283a.897.897 0 0 0-.87-1.114ZM6.358 18.208a.926.926 0 0 1 0-1.85.926.926 0 0 1 0 1.85Zm10.015 0a.926.926 0 0 1 0-1.85.926.926 0 0 1 0 1.85Zm2.021-7.243-13.8.81-.57-6.341h15.753l-1.383 5.53Z"
-              fill-rule="nonzero"
-            />
-          </svg>
-          <p class="text-base/6.5 font-bold">Add to cart</p>
-        </button>
       </div>
     </main>
     <!-- <footer class="attribution">
