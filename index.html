@@ -26,14 +26,23 @@
       }
     </style> -->
   </head>
-  <body class="font-kumbh md:px-20 pb-17.5">
-    <header class="p-6 md:px-0 md:py-7 border-b border-grey-100 md:mb-12">
+  <body class="font-kumbh md:px-20 pb-17.5 lg:pb-32">
+    <header
+      class="p-6 md:px-0 md:py-7 border-b border-grey-100 md:mb-12 lg:mb-24 max-w-277 m-auto"
+    >
       <nav class="flex items-center justify-between">
-        <div class="flex gap-4">
-          <button class="cursor-pointer">
+        <div class="flex gap-4 lg:gap-14">
+          <button class="cursor-pointer lg:hidden">
             <img src="./images/icon-menu.svg" alt="" />
           </button>
-          <img src="./images/logo.svg" alt="Sneakers logo" />
+          <img src="./images/logo.svg" alt="Sneakers logo" class="h-5" />
+          <ul class="hidden lg:flex gap-8 text-[0.9375rem]/6.5 text-grey-500">
+            <li><a>Collections</a></li>
+            <li><a>Men</a></li>
+            <li><a>Women</a></li>
+            <li><a>About</a></li>
+            <li><a>Contact</a></li>
+          </ul>
         </div>
         <div class="flex gap-6 md:gap-12">
           <button class="cursor-pointer">
@@ -47,46 +56,76 @@
         </div>
       </nav>
     </header>
-    <main>
-      <div class="h-75 md:h-72.5 relative overflow-hidden mb-6 md:mb-12">
-        <div class="absolute size-full flex items-center justify-between px-4">
-          <button
-            class="bg-white size-10 rounded-full flex justify-center items-center cursor-pointer"
+    <main
+      class="flex flex-col lg:flex-row lg:justify-between lg:items-center lg:gap-8 max-w-277 m-auto lg:px-11"
+    >
+      <div class="lg:w-112 shrink-0">
+        <div
+          class="w-full h-75 md:h-72.5 lg:h-111 relative overflow-hidden mb-6 md:mb-12 lg:mb-8"
+        >
+          <div
+            class="absolute size-full flex items-center justify-between px-4 lg:hidden"
           >
-            <img src="./images/icon-previous.svg" alt="" class="h-3" />
-          </button>
-          <button
-            class="bg-white size-10 rounded-full flex justify-center items-center cursor-pointer"
-          >
-            <img src="./images/icon-next.svg" alt="" class="h-3" />
-          </button>
+            <button
+              class="bg-white size-10 rounded-full flex justify-center items-center cursor-pointer"
+            >
+              <img src="./images/icon-previous.svg" alt="" class="h-3" />
+            </button>
+            <button
+              class="bg-white size-10 rounded-full flex justify-center items-center cursor-pointer"
+            >
+              <img src="./images/icon-next.svg" alt="" class="h-3" />
+            </button>
+          </div>
+          <img
+            class="size-full object-cover object-center md:object-[50%_65%] lg:object-center md:rounded-2xl"
+            src="./images/image-product-1.jpg"
+            alt="Fall limited edition sneakers against orange background"
+          />
         </div>
-        <img
-          class="size-full object-cover object-center md:object-[0%_65%] md:rounded-2xl"
-          src="./images/image-product-1.jpg"
-          alt="Fall limited edition sneakers against orange background"
-        />
+        <div class="hidden lg:flex justify-between">
+          <img
+            src="./images/image-product-1-thumbnail.jpg"
+            alt=""
+            class="size-22 rounded-[0.625rem]"
+          />
+          <img
+            src="./images/image-product-2-thumbnail.jpg"
+            alt=""
+            class="size-22 rounded-[0.625rem]"
+          />
+          <img
+            src="./images/image-product-3-thumbnail.jpg"
+            alt=""
+            class="size-22 rounded-[0.625rem]"
+          />
+          <img
+            src="./images/image-product-4-thumbnail.jpg"
+            alt=""
+            class="size-22 rounded-[0.625rem]"
+          />
+        </div>
       </div>
-      <div class="px-6 md:px-0">
+      <div class="px-6 md:px-0 lg:w-111">
         <p
-          class="uppercase text-grey-500 font-bold text-xs md:text-[0.8125rem] tracking-widest mb-4 md:mb-6"
+          class="uppercase text-grey-500 font-bold text-xs md:text-[0.8125rem] tracking-widest mb-4 md:mb-6 lg:mb-8"
         >
           Sneaker company
         </p>
         <h1
-          class="text-[1.75rem]/8 md:text-[2.75rem]/12 font-bold mb-4 md:mb-6"
+          class="text-[1.75rem]/8 md:text-[2.75rem]/12 font-bold mb-4 md:mb-6 lg:mb-8"
         >
           Fall Limited Edition Sneakers
         </h1>
         <p
-          class="text-[0.9375rem]/6.5 md:text-base/6.5 text-grey-500 mb-8 md:mb-6"
+          class="text-[0.9375rem]/6.5 md:text-base/6.5 text-grey-500 mb-8 md:mb-6 lg:mb-8"
         >
           These low-profile sneakers are your perfect casual wear companion.
           Featuring a durable rubber outer sole, they’ll withstand everything
           the weather can offer.
         </p>
         <div
-          class="flex md:flex-col justify-between items-center md:items-start md:gap-2 mb-8 md:mb-6"
+          class="flex md:flex-col justify-between items-center md:items-start md:gap-2 mb-8 md:mb-6 lg:mb-8"
         >
           <div class="flex gap-4 items-center">
             <p class="text-[1.75rem]/8 font-bold">$125.00</p>
@@ -113,7 +152,7 @@
             </button>
           </div>
           <button
-            class="h-14 bg-orange-500 w-full flex justify-center items-center gap-4 rounded-[0.625rem] cursor-pointer md:w-1/2"
+            class="h-14 bg-orange-500 w-full flex justify-center items-center gap-4 rounded-[0.625rem] cursor-pointer md:w-1/2 lg:w-3/4"
           >
             <svg
               class="fill-grey-950 h-4"
