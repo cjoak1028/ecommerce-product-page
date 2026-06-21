@@ -28,20 +28,43 @@
   </head>
   <body class="font-kumbh md:px-20 pb-17.5 lg:pb-32">
     <header
-      class="p-6 md:px-0 md:py-7 border-b border-grey-100 md:mb-12 lg:mb-24 max-w-277 m-auto"
+      class="px-6 md:px-0 border-b border-grey-100 md:mb-12 lg:mb-24 max-w-277 m-auto"
     >
-      <nav class="flex items-center justify-between">
-        <div class="flex gap-4 lg:gap-14">
+      <nav class="flex items-center justify-between h-17 md:h-28">
+        <div class="flex gap-4 lg:gap-14 items-center h-full">
           <button class="cursor-pointer lg:hidden">
             <img src="./images/icon-menu.svg" alt="" />
           </button>
           <img src="./images/logo.svg" alt="Sneakers logo" class="h-5" />
-          <ul class="hidden lg:flex gap-8 text-[0.9375rem]/6.5 text-grey-500">
-            <li><a>Collections</a></li>
-            <li><a>Men</a></li>
-            <li><a>Women</a></li>
-            <li><a>About</a></li>
-            <li><a>Contact</a></li>
+          <!-- Desktop navigation links -->
+          <ul
+            class="hidden lg:flex gap-8 text-[0.9375rem]/6.5 text-grey-500 h-full"
+          >
+            <li
+              class="relative flex items-center after:opacity-0 has-hover:after:opacity-100 after:absolute after:w-full after:h-1 after:bg-orange-500 after:bottom-0"
+            >
+              <a class="cursor-pointer hover:text-grey-950">Collections</a>
+            </li>
+            <li
+              class="relative flex items-center after:opacity-0 has-hover:after:opacity-100 after:absolute after:w-full after:h-1 after:bg-orange-500 after:bottom-0"
+            >
+              <a class="cursor-pointer hover:text-grey-950">Men</a>
+            </li>
+            <li
+              class="relative flex items-center after:opacity-0 has-hover:after:opacity-100 after:absolute after:w-full after:h-1 after:bg-orange-500 after:bottom-0"
+            >
+              <a class="cursor-pointer hover:text-grey-950">Women</a>
+            </li>
+            <li
+              class="relative flex items-center after:opacity-0 has-hover:after:opacity-100 after:absolute after:w-full after:h-1 after:bg-orange-500 after:bottom-0"
+            >
+              <a class="cursor-pointer hover:text-grey-950">About</a>
+            </li>
+            <li
+              class="relative flex items-center after:opacity-0 has-hover:after:opacity-100 after:absolute after:w-full after:h-1 after:bg-orange-500 after:bottom-0"
+            >
+              <a class="cursor-pointer hover:text-grey-950">Contact</a>
+            </li>
           </ul>
         </div>
         <div class="flex gap-6 md:gap-12">
