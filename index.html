@@ -135,28 +135,71 @@
             alt="Fall limited edition sneakers against orange background"
           />
         </div>
-        <div class="hidden lg:flex justify-between">
-          <img
-            src="./images/image-product-1-thumbnail.jpg"
-            alt=""
-            class="size-22 rounded-[0.625rem]"
-          />
-          <img
-            src="./images/image-product-2-thumbnail.jpg"
-            alt=""
-            class="size-22 rounded-[0.625rem]"
-          />
-          <img
-            src="./images/image-product-3-thumbnail.jpg"
-            alt=""
-            class="size-22 rounded-[0.625rem]"
-          />
-          <img
-            src="./images/image-product-4-thumbnail.jpg"
-            alt=""
-            class="size-22 rounded-[0.625rem]"
-          />
-        </div>
+        <!-- Thumbnails -->
+        <fieldset class="hidden lg:flex justify-between">
+          <legend class="sr-only">Choose product image</legend>
+          <label
+            class="inline-block size-22 rounded-[0.625rem] overflow-hidden has-checked:border-2 has-checked:border-solid has-checked:border-orange-500 cursor-pointer"
+          >
+            <input
+              type="radio"
+              name="product-image"
+              value="1"
+              checked
+              class="sr-only peer"
+            />
+            <img
+              src="./images/image-product-1-thumbnail.jpg"
+              alt=""
+              class="w-full h-full object-cover object-center peer-checked:opacity-50"
+            />
+          </label>
+          <label
+            class="inline-block size-22 rounded-[0.625rem] overflow-hidden has-checked:border-2 has-checked:border-solid has-checked:border-orange-500 cursor-pointer"
+          >
+            <input
+              type="radio"
+              name="product-image"
+              value="2"
+              class="sr-only peer"
+            />
+            <img
+              src="./images/image-product-2-thumbnail.jpg"
+              alt=""
+              class="w-full h-full object-cover object-center peer-checked:opacity-50"
+            />
+          </label>
+          <label
+            class="inline-block size-22 rounded-[0.625rem] overflow-hidden has-checked:border-2 has-checked:border-solid has-checked:border-orange-500 cursor-pointer"
+          >
+            <input
+              type="radio"
+              name="product-image"
+              value="3"
+              class="sr-only peer"
+            />
+            <img
+              src="./images/image-product-3-thumbnail.jpg"
+              alt=""
+              class="w-full h-full object-cover object-center peer-checked:opacity-50"
+            />
+          </label>
+          <label
+            class="inline-block size-22 rounded-[0.625rem] overflow-hidden has-checked:border-2 has-checked:border-solid has-checked:border-orange-500 cursor-pointer"
+          >
+            <input
+              type="radio"
+              name="product-image"
+              value="4"
+              class="sr-only peer"
+            />
+            <img
+              src="./images/image-product-4-thumbnail.jpg"
+              alt=""
+              class="w-full h-full object-cover object-center peer-checked:opacity-50"
+            />
+          </label>
+        </fieldset>
       </div>
       <div class="px-6 md:px-0 lg:w-111">
         <p
