@@ -2,6 +2,10 @@ const menuOpenButton = document.querySelector("#menu-open-button");
 const menuCloseButton = document.querySelector("#menu-close-button");
 const menu = document.querySelector("#menu");
 const mediaQuery = window.matchMedia("(min-width: 64rem)");
+const productThumbnailsMain = document.querySelector(
+  "#product-thumbnails-main",
+);
+const productImageMain = document.querySelector("#product-image-main");
 
 const openMenu = () => {
   document.body.classList.add("overflow-hidden");
@@ -31,4 +35,8 @@ menu.addEventListener("click", (e) => {
   if (e.target.matches("#menu")) {
     closeMenu();
   }
+});
+
+productThumbnailsMain.addEventListener("change", (e) => {
+  productImageMain.src = `./images/image-product-${e.target.value}.jpg`;
 });
