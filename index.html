@@ -164,19 +164,19 @@
     >
       <div class="lg:w-112 shrink-0">
         <div
-          class="w-full h-75 md:h-72.5 lg:h-111 relative overflow-hidden mb-6 md:mb-12 lg:mb-8"
+          class="w-full h-75 md:h-72.5 lg:h-111 relative overflow-hidden mb-6 md:mb-12 lg:mb-8 cursor-pointer"
         >
           <div
             class="absolute size-full flex items-center justify-between px-4 lg:hidden z-5"
           >
             <button
-              id="prev-button"
+              id="prev-button-main"
               class="bg-white size-10 rounded-full flex justify-center items-center cursor-pointer"
             >
               <img src="./images/icon-previous.svg" alt="" class="h-3" />
             </button>
             <button
-              id="next-button"
+              id="next-button-main"
               class="bg-white size-10 rounded-full flex justify-center items-center cursor-pointer"
             >
               <img src="./images/icon-next.svg" alt="" class="h-3" />
@@ -202,7 +202,7 @@
             <input
               id="thumbnail-option-1"
               type="radio"
-              name="product-image"
+              name="main-product-image"
               value="1"
               checked
               class="sr-only peer"
@@ -219,7 +219,7 @@
             <input
               id="thumbnail-option-2"
               type="radio"
-              name="product-image"
+              name="main-product-image"
               value="2"
               class="sr-only peer"
             />
@@ -235,7 +235,7 @@
             <input
               id="thumbnail-option-3"
               type="radio"
-              name="product-image"
+              name="main-product-image"
               value="3"
               class="sr-only peer"
             />
@@ -251,7 +251,7 @@
             <input
               id="thumbnail-option-4"
               type="radio"
-              name="product-image"
+              name="main-product-image"
               value="4"
               class="sr-only peer"
             />
@@ -263,11 +263,20 @@
           </label>
         </fieldset>
         <!-- Lightbox -->
-        <!-- <div class="fixed inset-0 bg-black/75 z-12 overflow-y-auto">
-          <div class="min-h-screen flex justify-center items-center p-10">
+        <div
+          id="lightbox"
+          class="fixed inset-0 bg-black/75 z-12 overflow-y-auto hidden"
+        >
+          <div
+            id="lightbox-content"
+            class="min-h-screen flex justify-center items-center p-10"
+          >
             <div class="w-137.5">
               <div class="mb-6 flex justify-end">
-                <button class="size-5">
+                <button
+                  id="lightbox-close-button"
+                  class="size-5 cursor-pointer"
+                >
                   <svg
                     class="fill-white size-full"
                     xmlns="http://www.w3.org/2000/svg"
@@ -282,19 +291,23 @@
               </div>
               <div class="overflow-hidden rounded-2xl mb-10">
                 <img
+                  id="product-image-lightbox"
                   src="./images/image-product-1.jpg"
                   class="size-full object-cover object-center"
                   alt="Fall limited edition sneakers image 1"
                 />
               </div>
-              <fieldset class="flex gap-8 justify-center">
+              <fieldset
+                id="product-thumbnails-lightbox"
+                class="flex gap-8 justify-center"
+              >
                 <legend class="sr-only">Choose product image</legend>
                 <label
-                  class="inline-block size-22 rounded-[0.625rem] overflow-hidden has-checked:border-2 has-checked:border-solid has-checked:border-orange-500 cursor-pointer"
+                  class="inline-block size-22 rounded-[0.625rem] overflow-hidden has-checked:border-2 has-checked:border-solid has-checked:border-orange-500 cursor-pointer bg-white"
                 >
                   <input
                     type="radio"
-                    name="product-image"
+                    name="lightbox-product-image"
                     value="1"
                     checked
                     class="sr-only peer"
@@ -306,11 +319,11 @@
                   />
                 </label>
                 <label
-                  class="inline-block size-22 rounded-[0.625rem] overflow-hidden has-checked:border-2 has-checked:border-solid has-checked:border-orange-500 cursor-pointer"
+                  class="inline-block size-22 rounded-[0.625rem] overflow-hidden has-checked:border-2 has-checked:border-solid has-checked:border-orange-500 cursor-pointer bg-white"
                 >
                   <input
                     type="radio"
-                    name="product-image"
+                    name="lightbox-product-image"
                     value="2"
                     class="sr-only peer"
                   />
@@ -321,11 +334,11 @@
                   />
                 </label>
                 <label
-                  class="inline-block size-22 rounded-[0.625rem] overflow-hidden has-checked:border-2 has-checked:border-solid has-checked:border-orange-500 cursor-pointer"
+                  class="inline-block size-22 rounded-[0.625rem] overflow-hidden has-checked:border-2 has-checked:border-solid has-checked:border-orange-500 cursor-pointer bg-white"
                 >
                   <input
                     type="radio"
-                    name="product-image"
+                    name="lightbox-product-image"
                     value="3"
                     class="sr-only peer"
                   />
@@ -336,11 +349,11 @@
                   />
                 </label>
                 <label
-                  class="inline-block size-22 rounded-[0.625rem] overflow-hidden has-checked:border-2 has-checked:border-solid has-checked:border-orange-500 cursor-pointer"
+                  class="inline-block size-22 rounded-[0.625rem] overflow-hidden has-checked:border-2 has-checked:border-solid has-checked:border-orange-500 cursor-pointer bg-white"
                 >
                   <input
                     type="radio"
-                    name="product-image"
+                    name="lightbox-product-image"
                     value="4"
                     class="sr-only peer"
                   />
@@ -353,7 +366,7 @@
               </fieldset>
             </div>
           </div>
-        </div> -->
+        </div>
       </div>
       <div class="px-6 md:px-0 lg:w-111">
         <p

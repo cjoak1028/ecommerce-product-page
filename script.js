@@ -6,8 +6,14 @@ const productThumbnailsMain = document.querySelector(
   "#product-thumbnails-main",
 );
 const productImageMain = document.querySelector("#product-image-main");
-const prevButton = document.querySelector("#prev-button");
-const nextButton = document.querySelector("#next-button");
+const mainPrevButton = document.querySelector("#prev-button-main");
+const mainNextButton = document.querySelector("#next-button-main");
+const lightbox = document.querySelector("#lightbox");
+const lightboxCloseButton = document.querySelector("#lightbox-close-button");
+const productThumbnailsLightbox = document.querySelector(
+  "#product-thumbnails-lightbox",
+);
+const productImageLightbox = document.querySelector("#product-image-lightbox");
 
 const openMenu = () => {
   document.body.classList.add("overflow-hidden");
@@ -17,6 +23,26 @@ const openMenu = () => {
 const closeMenu = () => {
   document.body.classList.remove("overflow-hidden");
   menu.classList.add("hidden");
+};
+
+const updateMainImage = (id) => {
+  productImageMain.src = `./images/image-product-${id}.jpg`;
+  productImageMain.alt = `Product image ${id}`;
+  productImageMain.dataset.id = id;
+};
+
+const updateLightboxImage = (id) => {
+  productImageLightbox.src = `./images/image-product-${id}.jpg`;
+  productImageLightbox.alt = `Product image ${id}`;
+  productImageLightbox.dataset.id = id;
+};
+
+const updateMainThumbnailSelected = (id) => {
+  productThumbnailsMain.querySelector(`[value="${id}"]`).checked = true;
+};
+
+const updateLightboxThumbnailSelected = (id) => {
+  productThumbnailsLightbox.querySelector(`[value="${id}"]`).checked = true;
 };
 
 menuOpenButton.addEventListener("click", () => {
@@ -40,39 +66,59 @@ menu.addEventListener("click", (e) => {
 });
 
 productThumbnailsMain.addEventListener("change", (e) => {
-  productImageMain.src = `./images/image-product-${e.target.value}.jpg`;
-  productImageMain.alt = `Product image ${e.target.value}`;
-  productImageMain.dataset.id = e.target.value;
+  const selectedImageId = e.target.value;
+  updateMainImage(selectedImageId);
+  updateLightboxImage(selectedImageId);
+  updateLightboxThumbnailSelected(selectedImageId);
 });
 
-prevButton.addEventListener("click", () => {
+mainPrevButton.addEventListener("click", () => {
   const curImageId = +productImageMain.dataset.id;
   let prevImageId = curImageId - 1;
+
   if (prevImageId < 1) {
     prevImageId = 4;
   }
-  productImageMain.src = `./images/image-product-${prevImageId}.jpg`;
-  productImageMain.alt = `Product image ${prevImageId}`;
-  productImageMain.dataset.id = prevImageId;
 
-  const thumbnailOption = productThumbnailsMain.querySelector(
-    `#thumbnail-option-${prevImageId}`,
-  );
-  thumbnailOption.checked = true;
+  updateMainImage(prevImageId);
+  updateLightboxImage(prevImageId);
+
+  updateMainThumbnailSelected(prevImageId);
+  updateLightboxThumbnailSelected(prevImageId);
 });
 
-nextButton.addEventListener("click", () => {
+mainNextButton.addEventListener("click", () => {
   const curImageId = +productImageMain.dataset.id;
   let nextImageId = curImageId + 1;
+
   if (nextImageId > 4) {
     nextImageId = 1;
   }
-  productImageMain.src = `./images/image-product-${nextImageId}.jpg`;
-  productImageMain.alt = `Product image ${nextImageId}`;
-  productImageMain.dataset.id = nextImageId;
 
-  const thumbnailOption = productThumbnailsMain.querySelector(
-    `#thumbnail-option-${nextImageId}`,
-  );
-  thumbnailOption.checked = true;
+  updateMainImage(nextImageId);
+  updateLightboxImage(nextImageId);
+
+  updateMainThumbnailSelected(nextImageId);
+  updateLightboxThumbnailSelected(nextImageId);
+});
+
+productImageMain.addEventListener("click", () => {
+  lightbox.classList.remove("hidden");
+  document.body.classList.add("overflow-hidden");
+});
+
+lightboxCloseButton.addEventListener("click", () => {
+  lightbox.classList.add("hidden");
+  document.body.classList.remove("overflow-hidden");
+});
+
+document.addEventListener("click", (e) => {
+  if (e.target.matches("#lightbox-content")) {
+    lightbox.classList.add("hidden");
+    document.body.classList.remove("overflow-hidden");
+  }
+});
+
+productThumbnailsLightbox.addEventListener("change", (e) => {
+  updateLightboxImage(e.target.value);
 });
