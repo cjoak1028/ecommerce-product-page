@@ -6,6 +6,8 @@ const productThumbnailsMain = document.querySelector(
   "#product-thumbnails-main",
 );
 const productImageMain = document.querySelector("#product-image-main");
+const prevButton = document.querySelector("#prev-button");
+const nextButton = document.querySelector("#next-button");
 
 const openMenu = () => {
   document.body.classList.add("overflow-hidden");
@@ -39,4 +41,38 @@ menu.addEventListener("click", (e) => {
 
 productThumbnailsMain.addEventListener("change", (e) => {
   productImageMain.src = `./images/image-product-${e.target.value}.jpg`;
+  productImageMain.alt = `Product image ${e.target.value}`;
+  productImageMain.dataset.id = e.target.value;
+});
+
+prevButton.addEventListener("click", () => {
+  const curImageId = +productImageMain.dataset.id;
+  let prevImageId = curImageId - 1;
+  if (prevImageId < 1) {
+    prevImageId = 4;
+  }
+  productImageMain.src = `./images/image-product-${prevImageId}.jpg`;
+  productImageMain.alt = `Product image ${prevImageId}`;
+  productImageMain.dataset.id = prevImageId;
+
+  const thumbnailOption = productThumbnailsMain.querySelector(
+    `#thumbnail-option-${prevImageId}`,
+  );
+  thumbnailOption.checked = true;
+});
+
+nextButton.addEventListener("click", () => {
+  const curImageId = +productImageMain.dataset.id;
+  let nextImageId = curImageId + 1;
+  if (nextImageId > 4) {
+    nextImageId = 1;
+  }
+  productImageMain.src = `./images/image-product-${nextImageId}.jpg`;
+  productImageMain.alt = `Product image ${nextImageId}`;
+  productImageMain.dataset.id = nextImageId;
+
+  const thumbnailOption = productThumbnailsMain.querySelector(
+    `#thumbnail-option-${nextImageId}`,
+  );
+  thumbnailOption.checked = true;
 });

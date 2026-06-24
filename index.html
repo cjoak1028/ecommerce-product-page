@@ -170,11 +170,13 @@
             class="absolute size-full flex items-center justify-between px-4 lg:hidden z-5"
           >
             <button
+              id="prev-button"
               class="bg-white size-10 rounded-full flex justify-center items-center cursor-pointer"
             >
               <img src="./images/icon-previous.svg" alt="" class="h-3" />
             </button>
             <button
+              id="next-button"
               class="bg-white size-10 rounded-full flex justify-center items-center cursor-pointer"
             >
               <img src="./images/icon-next.svg" alt="" class="h-3" />
@@ -182,9 +184,10 @@
           </div>
           <img
             id="product-image-main"
+            data-id="1"
             class="size-full object-cover object-center md:object-[50%_65%] lg:object-center md:rounded-2xl"
             src="./images/image-product-1.jpg"
-            alt="Fall limited edition sneakers against orange background"
+            alt="Product image 1"
           />
         </div>
         <!-- Thumbnails -->
@@ -197,6 +200,7 @@
             class="inline-block size-22 rounded-[0.625rem] overflow-hidden has-checked:border-2 has-checked:border-solid has-checked:border-orange-500 cursor-pointer"
           >
             <input
+              id="thumbnail-option-1"
               type="radio"
               name="product-image"
               value="1"
@@ -213,6 +217,7 @@
             class="inline-block size-22 rounded-[0.625rem] overflow-hidden has-checked:border-2 has-checked:border-solid has-checked:border-orange-500 cursor-pointer"
           >
             <input
+              id="thumbnail-option-2"
               type="radio"
               name="product-image"
               value="2"
@@ -228,6 +233,7 @@
             class="inline-block size-22 rounded-[0.625rem] overflow-hidden has-checked:border-2 has-checked:border-solid has-checked:border-orange-500 cursor-pointer"
           >
             <input
+              id="thumbnail-option-3"
               type="radio"
               name="product-image"
               value="3"
@@ -243,6 +249,7 @@
             class="inline-block size-22 rounded-[0.625rem] overflow-hidden has-checked:border-2 has-checked:border-solid has-checked:border-orange-500 cursor-pointer"
           >
             <input
+              id="thumbnail-option-4"
               type="radio"
               name="product-image"
               value="4"
