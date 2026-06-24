@@ -12,6 +12,7 @@
       href="./images/favicon-32x32.png"
     />
     <link href="./output.css" rel="stylesheet" />
+    <script src="./script.js" defer></script>
 
     <title>Frontend Mentor | E-commerce product page</title>
 
@@ -26,20 +27,23 @@
       }
     </style> -->
   </head>
-  <body class="font-kumbh md:px-20 pb-17.5 lg:pb-32 overflow-hidden">
+  <body class="font-kumbh md:px-20 pb-17.5 lg:pb-32">
     <header
       class="px-6 md:px-0 border-b border-grey-100 md:mb-12 lg:mb-24 max-w-277 m-auto"
     >
       <nav class="flex items-center justify-between h-17 md:h-28">
         <div class="flex gap-4 lg:gap-14 items-center h-full">
-          <button class="cursor-pointer lg:hidden">
+          <button id="menu-open-button" class="cursor-pointer lg:hidden">
             <img src="./images/icon-menu.svg" alt="" />
           </button>
           <!-- Hamburger menu -->
-          <div class="fixed bg-black/75 left-0 top-0 w-full h-full z-10 hidden">
+          <div
+            id="menu"
+            class="fixed bg-black/75 left-0 top-0 w-full h-full z-10 hidden"
+          >
             <div class="bg-white w-62.5 md:w-75 h-full px-6 md:px-20">
-              <div class="flex h-17 md:h-28 mb-7 md:mb-1.5">
-                <button class="cursor-pointer">
+              <div class="flex h-17 items-center md:h-28 mb-7 md:mb-1.5">
+                <button id="menu-close-button" class="cursor-pointer">
                   <img src="./images/icon-close.svg" alt="" class="size-3.25" />
                 </button>
               </div>
