@@ -371,6 +371,9 @@
   .min-h-screen {
     min-height: 100vh;
   }
+  .w-2 {
+    width: calc(var(--spacing) * 2);
+  }
   .w-2\/5 {
     width: calc(2 / 5 * 100%);
   }
@@ -524,6 +527,12 @@
   .fill-white {
     fill: var(--color-white);
   }
+  .stroke-\[\#1D2026\] {
+    stroke: #1D2026;
+  }
+  .stroke-3 {
+    stroke-width: 3;
+  }
   .object-cover {
     object-fit: cover;
   }
@@ -639,6 +648,27 @@
     --tw-drop-shadow: var(--tw-drop-shadow-size);
     filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,);
   }
+  .group-hover\:fill-orange-500 {
+    &:is(:where(.group):hover *) {
+      @media (hover: hover) {
+        fill: var(--color-orange-500);
+      }
+    }
+  }
+  .group-hover\:stroke-orange-500 {
+    &:is(:where(.group):hover *) {
+      @media (hover: hover) {
+        stroke: var(--color-orange-500);
+      }
+    }
+  }
+  .group-hover\:opacity-50 {
+    &:is(:where(.group):hover *) {
+      @media (hover: hover) {
+        opacity: 50%;
+      }
+    }
+  }
   .peer-checked\:opacity-50 {
     &:is(:where(.peer):checked ~ *) {
       opacity: 50%;
@@ -678,6 +708,13 @@
     &::after {
       content: var(--tw-content);
       opacity: 0%;
+    }
+  }
+  .hover\:fill-orange-500 {
+    &:hover {
+      @media (hover: hover) {
+        fill: var(--color-orange-500);
+      }
     }
   }
   .hover\:text-grey-950 {
