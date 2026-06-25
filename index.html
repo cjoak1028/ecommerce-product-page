@@ -33,7 +33,11 @@
     >
       <nav class="flex items-center justify-between h-17 md:h-28">
         <div class="flex gap-4 lg:gap-14 items-center h-full">
-          <button id="menu-open-button" class="cursor-pointer lg:hidden">
+          <button
+            type="button"
+            id="menu-open-button"
+            class="cursor-pointer lg:hidden"
+          >
             <img src="./images/icon-menu.svg" alt="" />
           </button>
           <!-- Hamburger menu -->
@@ -43,7 +47,11 @@
           >
             <div class="bg-white w-62.5 md:w-75 h-full px-6 md:px-20">
               <div class="flex h-17 items-center md:h-28 mb-7 md:mb-1.5">
-                <button id="menu-close-button" class="cursor-pointer">
+                <button
+                  type="button"
+                  id="menu-close-button"
+                  class="cursor-pointer"
+                >
                   <img src="./images/icon-close.svg" alt="" class="size-3.25" />
                 </button>
               </div>
@@ -101,7 +109,7 @@
           </ul>
         </div>
         <div class="flex gap-6 md:gap-12">
-          <button class="cursor-pointer">
+          <button type="button" class="cursor-pointer">
             <img src="./images/icon-cart.svg" alt="" />
           </button>
           <!-- Cart modal -->
@@ -170,12 +178,14 @@
             class="absolute size-full flex items-center justify-between px-4 lg:hidden z-5"
           >
             <button
+              type="button"
               id="prev-button-main"
               class="bg-white size-10 rounded-full flex justify-center items-center cursor-pointer"
             >
               <img src="./images/icon-previous.svg" alt="" class="h-3" />
             </button>
             <button
+              type="button"
               id="next-button-main"
               class="bg-white size-10 rounded-full flex justify-center items-center cursor-pointer"
             >
@@ -274,6 +284,7 @@
             <div class="w-137.5">
               <div class="mb-6 flex justify-end">
                 <button
+                  type="button"
                   id="lightbox-close-button"
                   class="size-5 cursor-pointer"
                 >
@@ -295,6 +306,7 @@
                 >
                   <!-- Lightbox prev button -->
                   <button
+                    type="button"
                     id="prev-button-lightbox"
                     class="bg-white size-14 rounded-full flex justify-center items-center cursor-pointer relative -left-7 group"
                   >
@@ -308,6 +320,7 @@
                   </button>
                   <!-- Lightbox next button -->
                   <button
+                    type="button"
                     id="next-button-lightbox"
                     class="bg-white size-14 rounded-full flex justify-center items-center cursor-pointer relative -right-7 group"
                   >
@@ -434,21 +447,42 @@
             $250.00
           </p>
         </div>
-        <div class="flex flex-col md:flex-row gap-4">
+        <!-- Add to cart form -->
+        <form class="flex flex-col md:flex-row gap-4">
           <div
-            class="flex justify-between items-center h-14 bg-grey-50 rounded-[0.625rem] px-[1.125rem] md:w-1/2"
+            class="flex justify-between items-center h-14 bg-grey-50 rounded-[0.625rem] px-[1.125rem] md:w-1/2 lg:w-2/5"
           >
-            <button class="cursor-pointer">
-              <img src="./images/icon-minus.svg" alt="" />
+            <label for="quantity-input" class="sr-only">Quantity</label>
+            <button
+              type="button"
+              id="quant-decr-button"
+              class="cursor-pointer size-3 flex justify-center items-center"
+            >
+              <img src="./images/icon-minus.svg" alt="" class="w-3" />
             </button>
-            <p class="text-base/6.5 font-bold">0</p>
-            <button class="cursor-pointer">
-              <img src="./images/icon-plus.svg" alt="" />
+            <input
+              id="quantity-input"
+              name="quantity"
+              type="number"
+              min="1"
+              value="1"
+              readonly
+              class="text-base/6.5 w-1/2 font-bold text-center outline-none appearance-none [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none [MozAppearance:textfield]"
+            />
+            <button
+              type="button"
+              id="quant-incr-button"
+              class="cursor-pointer size-3 flex justify-center items-center"
+            >
+              <img src="./images/icon-plus.svg" alt="" class="w-3" />
             </button>
           </div>
+          <!-- Add to cart button -->
           <button
-            class="h-14 bg-orange-500 w-full flex justify-center items-center gap-4 rounded-[0.625rem] cursor-pointer md:w-1/2 lg:w-3/4"
+            type="submit"
+            class="h-14 bg-orange-500 w-full flex justify-center items-center gap-4 rounded-[0.625rem] cursor-pointer md:w-1/2 lg:w-3/5"
           >
+            <!-- Cart icon -->
             <svg
               class="fill-grey-950 h-4"
               viewBox="0 0 22 20"
@@ -461,7 +495,7 @@
             </svg>
             <p class="text-base/6.5 font-bold">Add to cart</p>
           </button>
-        </div>
+        </form>
       </div>
     </main>
     <!-- <footer class="attribution">

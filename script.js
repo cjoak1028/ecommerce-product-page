@@ -16,6 +16,9 @@ const productThumbnailsLightbox = document.querySelector(
 const productImageLightbox = document.querySelector("#product-image-lightbox");
 const lightboxPrevButton = document.querySelector("#prev-button-lightbox");
 const lightboxNextButton = document.querySelector("#next-button-lightbox");
+const quantityInput = document.querySelector("#quantity-input");
+const quantityDecrementButton = document.querySelector("#quant-decr-button");
+const quantityIncrementButton = document.querySelector("#quant-incr-button");
 
 const openMenu = () => {
   document.body.classList.add("overflow-hidden");
@@ -152,4 +155,16 @@ lightboxNextButton.addEventListener("click", () => {
 
   updateLightboxImage(nextImageId);
   updateLightboxThumbnailSelected(nextImageId);
+});
+
+quantityDecrementButton.addEventListener("click", () => {
+  const quantity = +quantityInput.value;
+  if (quantity > 1) {
+    quantityInput.value = quantity - 1;
+  }
+});
+
+quantityIncrementButton.addEventListener("click", () => {
+  const quantity = +quantityInput.value;
+  quantityInput.value = quantity + 1;
 });
