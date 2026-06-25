@@ -104,8 +104,12 @@ mainNextButton.addEventListener("click", () => {
   updateLightboxThumbnailSelected(nextImageId);
 });
 
-// TODO: ENSURE LIGHTBOX HAS SAME IMAGE AS MAIN WHEN OPEN
 productImageMain.addEventListener("click", () => {
+  const curImageId = +productImageMain.dataset.id;
+
+  updateLightboxImage(curImageId);
+  updateLightboxThumbnailSelected(curImageId);
+
   lightbox.classList.remove("hidden");
   document.body.classList.add("overflow-hidden");
 });
