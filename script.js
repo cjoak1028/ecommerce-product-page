@@ -14,6 +14,8 @@ const productThumbnailsLightbox = document.querySelector(
   "#product-thumbnails-lightbox",
 );
 const productImageLightbox = document.querySelector("#product-image-lightbox");
+const lightboxPrevButton = document.querySelector("#prev-button-lightbox");
+const lightboxNextButton = document.querySelector("#next-button-lightbox");
 
 const openMenu = () => {
   document.body.classList.add("overflow-hidden");
@@ -102,6 +104,7 @@ mainNextButton.addEventListener("click", () => {
   updateLightboxThumbnailSelected(nextImageId);
 });
 
+// TODO: ENSURE LIGHTBOX HAS SAME IMAGE AS MAIN WHEN OPEN
 productImageMain.addEventListener("click", () => {
   lightbox.classList.remove("hidden");
   document.body.classList.add("overflow-hidden");
@@ -121,4 +124,28 @@ document.addEventListener("click", (e) => {
 
 productThumbnailsLightbox.addEventListener("change", (e) => {
   updateLightboxImage(e.target.value);
+});
+
+lightboxPrevButton.addEventListener("click", () => {
+  const curImageId = +productImageLightbox.dataset.id;
+  let prevImageId = curImageId - 1;
+
+  if (prevImageId < 1) {
+    prevImageId = 4;
+  }
+
+  updateLightboxImage(prevImageId);
+  updateLightboxThumbnailSelected(prevImageId);
+});
+
+lightboxNextButton.addEventListener("click", () => {
+  const curImageId = +productImageLightbox.dataset.id;
+  let nextImageId = curImageId + 1;
+
+  if (nextImageId > 4) {
+    nextImageId = 1;
+  }
+
+  updateLightboxImage(nextImageId);
+  updateLightboxThumbnailSelected(nextImageId);
 });
