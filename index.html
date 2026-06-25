@@ -289,13 +289,29 @@
                   </svg>
                 </button>
               </div>
-              <div class="overflow-hidden rounded-2xl mb-10">
-                <img
-                  id="product-image-lightbox"
-                  src="./images/image-product-1.jpg"
-                  class="size-full object-cover object-center"
-                  alt="Fall limited edition sneakers image 1"
-                />
+              <div class="relative">
+                <div
+                  class="absolute flex items-center justify-between z-14 size-full"
+                >
+                  <button
+                    class="bg-white size-14 rounded-full flex justify-center items-center cursor-pointer relative -left-7"
+                  >
+                    <img src="./images/icon-previous.svg" alt="" class="h-4" />
+                  </button>
+                  <button
+                    class="bg-white size-14 rounded-full flex justify-center items-center cursor-pointer relative -right-7"
+                  >
+                    <img src="./images/icon-next.svg" alt="" class="h-4" />
+                  </button>
+                </div>
+                <div class="overflow-hidden rounded-2xl mb-10">
+                  <img
+                    id="product-image-lightbox"
+                    src="./images/image-product-1.jpg"
+                    class="size-full object-cover object-center"
+                    alt="Fall limited edition sneakers image 1"
+                  />
+                </div>
               </div>
               <fieldset
                 id="product-thumbnails-lightbox"
