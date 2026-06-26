@@ -19,6 +19,22 @@ const lightboxNextButton = document.querySelector("#next-button-lightbox");
 const quantityInput = document.querySelector("#quantity-input");
 const quantityDecrementButton = document.querySelector("#quant-decr-button");
 const quantityIncrementButton = document.querySelector("#quant-incr-button");
+const cartButton = document.querySelector("#cart-button");
+const cartDropdown = document.querySelector("#cart-dropdown");
+const addCartForm = document.querySelector("#add-cart-form");
+const cartContent = document.querySelector("#cart-content");
+
+const PRODUCT_ID = 1;
+const PRODUCTS = {
+  1: {
+    id: 1,
+    name: "Fall Limited Edition Sneakers",
+    price: 125,
+    image: "image-product-1-thumbnail.jpg",
+  },
+};
+
+const CART = [];
 
 const openMenu = () => {
   document.body.classList.add("overflow-hidden");
@@ -167,4 +183,57 @@ quantityDecrementButton.addEventListener("click", () => {
 quantityIncrementButton.addEventListener("click", () => {
   const quantity = +quantityInput.value;
   quantityInput.value = quantity + 1;
+});
+
+cartButton.addEventListener("click", () => {
+  cartDropdown.classList.toggle("hidden");
+});
+
+addCartForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const formData = new FormData(addCartForm);
+  const quantity = +formData.get("quantity");
+
+  let cartItem = CART.find((item) => item.id === PRODUCT_ID);
+  if (cartItem) {
+    cartItem.quantity += quantity;
+  } else {
+    CART.push({ id: PRODUCT_ID, quantity });
+  }
+
+  let cartItems = "";
+  for (let item of CART) {
+    let cartProduct = PRODUCTS[item.id];
+    let totalPrice = cartProduct.price * item.quantity;
+    cartItems += `
+        <li class="flex justify-between items-center">
+            <div class="size-12.5 rounded-sm overflow-hidden">
+                <img
+                    src="./images/${cartProduct.image}"
+                    alt=""
+                    class="w-full h-full object-cover object-center"
+                />
+            </div>
+            <div class="text-base/6.5 text-grey-500">
+                <p>${cartProduct.name}</p>
+                <p>
+                    $${cartProduct.price}.00 x <span>${item.quantity}</span><span class="text-grey-950 font-bold ml-2">${totalPrice}.00</span>
+                </p>
+            </div>
+            <button>
+                <img src="./images/icon-delete.svg" alt="" />
+            </button>
+        </li>
+    `;
+  }
+
+  cartContent.innerHTML = `
+    <ul>
+        ${cartItems}
+    </ul>
+
+    <button class="h-14 bg-orange-500 rounded-[0.625rem] text-base/6.5 font-bold">
+        Checkout
+    </button>
+  `;
 });

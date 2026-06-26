@@ -546,6 +546,9 @@
   .bg-white {
     background-color: var(--color-white);
   }
+  .fill-grey-500 {
+    fill: var(--color-grey-500);
+  }
   .fill-grey-950 {
     fill: var(--color-grey-950);
   }
@@ -682,6 +685,13 @@
   .outline-none {
     --tw-outline-style: none;
     outline-style: none;
+  }
+  .group-hover\:fill-grey-950 {
+    &:is(:where(.group):hover *) {
+      @media (hover: hover) {
+        fill: var(--color-grey-950);
+      }
+    }
   }
   .group-hover\:fill-orange-300 {
     &:is(:where(.group):hover *) {

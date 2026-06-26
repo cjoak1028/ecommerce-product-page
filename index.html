@@ -109,12 +109,24 @@
           </ul>
         </div>
         <div class="flex gap-6 md:gap-12">
-          <button type="button" class="cursor-pointer">
-            <img src="./images/icon-cart.svg" alt="" />
+          <!-- Cart button -->
+          <button id="cart-button" type="button" class="cursor-pointer group">
+            <svg
+              class="fill-grey-500 group-hover:fill-grey-950"
+              width="22"
+              height="20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M20.925 3.641H3.863L3.61.816A.896.896 0 0 0 2.717 0H.897a.896.896 0 1 0 0 1.792h1l1.031 11.483c.073.828.52 1.726 1.291 2.336C2.83 17.385 4.099 20 6.359 20c1.875 0 3.197-1.87 2.554-3.642h4.905c-.642 1.77.677 3.642 2.555 3.642a2.72 2.72 0 0 0 2.717-2.717 2.72 2.72 0 0 0-2.717-2.717H6.365c-.681 0-1.274-.41-1.53-1.009l14.321-.842a.896.896 0 0 0 .817-.677l1.821-7.283a.897.897 0 0 0-.87-1.114ZM6.358 18.208a.926.926 0 0 1 0-1.85.926.926 0 0 1 0 1.85Zm10.015 0a.926.926 0 0 1 0-1.85.926.926 0 0 1 0 1.85Zm2.021-7.243-13.8.81-.57-6.341h15.753l-1.383 5.53Z"
+                fill-rule="nonzero"
+              />
+            </svg>
           </button>
-          <!-- Cart modal -->
-          <!-- <div
-            class="flex justify-end w-full absolute right-0 top-17 md:top-22 p-2 lg:px-22 z-7"
+          <!-- Cart dropdown -->
+          <div
+            id="cart-dropdown"
+            class="flex justify-end w-full absolute right-0 top-17 md:top-22 p-2 lg:px-22 z-7 hidden"
           >
             <div
               class="bg-white w-full max-w-90 rounded-[0.625rem] shadow-[0_20px_50px_-20px_rgba(29,32,38,0.5)]"
@@ -122,43 +134,15 @@
               <header class="px-3 py-6 border-solid border-b border-grey-100">
                 <h2 class="text-base/6.5 text-grey-950 font-bold">Cart</h2>
               </header>
-              <div class="flex flex-col p-6 gap-6">
+              <div id="cart-content" class="flex flex-col p-6 gap-6">
                 <p
                   class="text-base/6.5 text-grey-500 font-bold text-center my-18"
                 >
                   Your cart is empty.
                 </p>
-                <ul>
-                  <li class="flex justify-between items-center">
-                    <div class="size-12.5 rounded-sm overflow-hidden">
-                      <img
-                        src="./images/image-product-1-thumbnail.jpg"
-                        alt=""
-                        class="w-full h-full object-cover object-center"
-                      />
-                    </div>
-                    <div class="text-base/6.5 text-grey-500">
-                      <p>Fall Limited Edition Sneakers</p>
-                      <p>
-                        $125.00 x <span>3</span>
-                        <span class="text-grey-950 font-bold ml-2"
-                          >$375.00</span
-                        >
-                      </p>
-                    </div>
-                    <button>
-                      <img src="./images/icon-delete.svg" alt="" />
-                    </button>
-                  </li>
-                </ul>
-                <button
-                  class="h-14 bg-orange-500 rounded-[0.625rem] text-base/6.5 font-bold"
-                >
-                  Checkout
-                </button>
               </div>
             </div>
-          </div> -->
+          </div>
           <img
             src="./images/image-avatar.png"
             alt="User profile photo"
@@ -448,7 +432,7 @@
           </p>
         </div>
         <!-- Add to cart form -->
-        <form class="flex flex-col md:flex-row gap-4">
+        <form id="add-cart-form" class="flex flex-col md:flex-row gap-4">
           <div
             class="flex justify-between items-center h-14 bg-grey-50 rounded-[0.625rem] px-[1.125rem] md:w-1/2 lg:w-2/5"
           >
