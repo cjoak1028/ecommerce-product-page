@@ -255,6 +255,8 @@ cartContent.addEventListener("click", (e) => {
   let deleteButton = e.target.closest(".cart-delete-button");
   if (!deleteButton) return;
 
+  e.stopPropagation();
+
   let itemDeleteIndex = CART.findIndex(
     (item) => item.id === deleteButton.dataset["product-id"],
   );
@@ -264,7 +266,11 @@ cartContent.addEventListener("click", (e) => {
 });
 
 document.addEventListener("click", (e) => {
-  if (cartDropdownPanel.contains(e.target)) return;
+  console.log(e.target);
+  if (cartDropdownPanel.contains(e.target)) {
+    console.log("HELLO");
+    return;
+  }
   if (e.target.closest("#cart-button")) return;
 
   cartDropdown.classList.add("hidden");
