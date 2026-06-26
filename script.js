@@ -23,6 +23,7 @@ const cartButton = document.querySelector("#cart-button");
 const cartDropdown = document.querySelector("#cart-dropdown");
 const addCartForm = document.querySelector("#add-cart-form");
 const cartContent = document.querySelector("#cart-content");
+const cartDropdownPanel = document.querySelector("#cart-dropdown-panel");
 
 const PRODUCT_ID = 1;
 const PRODUCTS = {
@@ -260,4 +261,11 @@ cartContent.addEventListener("click", (e) => {
   CART.splice(itemDeleteIndex, 1);
 
   renderCart();
+});
+
+document.addEventListener("click", (e) => {
+  if (cartDropdownPanel.contains(e.target)) return;
+  if (e.target.closest("#cart-button")) return;
+
+  cartDropdown.classList.add("hidden");
 });
