@@ -108,9 +108,13 @@
             </li>
           </ul>
         </div>
-        <div class="flex gap-6 md:gap-12">
+        <div class="flex gap-6 md:gap-12 items-center">
           <!-- Cart button -->
-          <button id="cart-button" type="button" class="cursor-pointer group">
+          <button
+            id="cart-button"
+            type="button"
+            class="cursor-pointer group relative size-fit"
+          >
             <svg
               class="fill-grey-500 group-hover:fill-grey-950"
               width="22"
@@ -122,6 +126,11 @@
                 fill-rule="nonzero"
               />
             </svg>
+            <span
+              id="cart-count"
+              class="absolute -right-1.5 -top-1.5 w-[1.1875rem] h-[0.8125rem] flex justify-center items-center bg-orange-500 rounded-lg text-[0.625rem] text-white font-bold hidden"
+              >1</span
+            >
           </button>
           <!-- Cart dropdown -->
           <div

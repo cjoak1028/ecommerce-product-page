@@ -24,6 +24,7 @@ const cartDropdown = document.querySelector("#cart-dropdown");
 const addCartForm = document.querySelector("#add-cart-form");
 const cartContent = document.querySelector("#cart-content");
 const cartDropdownPanel = document.querySelector("#cart-dropdown-panel");
+const cartCountBadge = document.querySelector("#cart-count");
 
 const PRODUCT_ID = 1;
 const PRODUCTS = {
@@ -67,6 +68,16 @@ const updateLightboxThumbnailSelected = (id) => {
   productThumbnailsLightbox.querySelector(`[value="${id}"]`).checked = true;
 };
 
+const updateCountBadge = (count) => {
+  if (count === 0) {
+    cartCountBadge.classList.add("hidden");
+    return;
+  }
+
+  cartCountBadge.classList.remove("hidden");
+  cartCountBadge.innerText = count;
+};
+
 const renderCart = () => {
   if (CART.length === 0) {
     cartContent.innerHTML = `
@@ -74,13 +85,17 @@ const renderCart = () => {
             Your cart is empty.
         </p>
     `;
+    updateCountBadge(0);
     return;
   }
 
   let cartListItems = "";
+  let totalCartCount = 0;
   for (let item of CART) {
     let cartProduct = PRODUCTS[item.id];
     let totalPrice = cartProduct.price * item.quantity;
+    totalCartCount += item.quantity;
+
     cartListItems += `
         <li class="flex justify-between items-center">
             <div class="size-12.5 rounded-sm overflow-hidden">
@@ -111,6 +126,8 @@ const renderCart = () => {
         Checkout
     </button>
   `;
+
+  updateCountBadge(totalCartCount);
 };
 
 menuOpenButton.addEventListener("click", () => {
