@@ -66,6 +66,52 @@ const updateLightboxThumbnailSelected = (id) => {
   productThumbnailsLightbox.querySelector(`[value="${id}"]`).checked = true;
 };
 
+const renderCart = () => {
+  if (CART.length === 0) {
+    cartContent.innerHTML = `
+        <p class="text-base/6.5 text-grey-500 font-bold text-center my-18">
+            Your cart is empty.
+        </p>
+    `;
+    return;
+  }
+
+  let cartListItems = "";
+  for (let item of CART) {
+    let cartProduct = PRODUCTS[item.id];
+    let totalPrice = cartProduct.price * item.quantity;
+    cartListItems += `
+        <li class="flex justify-between items-center">
+            <div class="size-12.5 rounded-sm overflow-hidden">
+                <img
+                    src="./images/${cartProduct.image}"
+                    alt=""
+                    class="w-full h-full object-cover object-center"
+                />
+            </div>
+            <div class="text-base/6.5 text-grey-500">
+                <p>${cartProduct.name}</p>
+                <p>
+                    $${cartProduct.price}.00 x <span>${item.quantity}</span><span class="text-grey-950 font-bold ml-2">${totalPrice}.00</span>
+                </p>
+            </div>
+            <button class="cart-delete-button cursor-pointer" data-product-id="${item.id}">
+                <img src="./images/icon-delete.svg" alt="" />
+            </button>
+        </li>
+    `;
+  }
+  cartContent.innerHTML = `
+    <ul>
+        ${cartListItems}
+    </ul>
+
+    <button class="h-14 bg-orange-500 rounded-[0.625rem] text-base/6.5 font-bold">
+        Checkout
+    </button>
+  `;
+};
+
 menuOpenButton.addEventListener("click", () => {
   openMenu();
 });
@@ -201,39 +247,17 @@ addCartForm.addEventListener("submit", (e) => {
     CART.push({ id: PRODUCT_ID, quantity });
   }
 
-  let cartItems = "";
-  for (let item of CART) {
-    let cartProduct = PRODUCTS[item.id];
-    let totalPrice = cartProduct.price * item.quantity;
-    cartItems += `
-        <li class="flex justify-between items-center">
-            <div class="size-12.5 rounded-sm overflow-hidden">
-                <img
-                    src="./images/${cartProduct.image}"
-                    alt=""
-                    class="w-full h-full object-cover object-center"
-                />
-            </div>
-            <div class="text-base/6.5 text-grey-500">
-                <p>${cartProduct.name}</p>
-                <p>
-                    $${cartProduct.price}.00 x <span>${item.quantity}</span><span class="text-grey-950 font-bold ml-2">${totalPrice}.00</span>
-                </p>
-            </div>
-            <button>
-                <img src="./images/icon-delete.svg" alt="" />
-            </button>
-        </li>
-    `;
-  }
+  renderCart();
+});
 
-  cartContent.innerHTML = `
-    <ul>
-        ${cartItems}
-    </ul>
+cartContent.addEventListener("click", (e) => {
+  let deleteButton = e.target.closest(".cart-delete-button");
+  if (!deleteButton) return;
 
-    <button class="h-14 bg-orange-500 rounded-[0.625rem] text-base/6.5 font-bold">
-        Checkout
-    </button>
-  `;
+  let itemDeleteIndex = CART.findIndex(
+    (item) => item.id === deleteButton.dataset["product-id"],
+  );
+  CART.splice(itemDeleteIndex, 1);
+
+  renderCart();
 });
