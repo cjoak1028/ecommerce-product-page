@@ -266,11 +266,7 @@ cartContent.addEventListener("click", (e) => {
 });
 
 document.addEventListener("click", (e) => {
-  console.log(e.target);
-  if (cartDropdownPanel.contains(e.target)) {
-    console.log("HELLO");
-    return;
-  }
+  if (cartDropdownPanel.contains(e.target)) return;
   if (e.target.closest("#cart-button")) return;
 
   cartDropdown.classList.add("hidden");
