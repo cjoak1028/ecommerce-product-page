@@ -1,7 +1,8 @@
 const menuOpenButton = document.querySelector("#menu-open-button");
 const menuCloseButton = document.querySelector("#menu-close-button");
 const menu = document.querySelector("#menu");
-const mediaQuery = window.matchMedia("(min-width: 64rem)");
+const desktopMediaQuery = window.matchMedia("(min-width: 64rem)");
+const tabletMediaQuery = window.matchMedia("(max-width: 64rem)");
 const productThumbnailsMain = document.querySelector(
   "#product-thumbnails-main",
 );
@@ -138,7 +139,7 @@ menuCloseButton.addEventListener("click", () => {
   closeMenu();
 });
 
-mediaQuery.addEventListener("change", (e) => {
+desktopMediaQuery.addEventListener("change", (e) => {
   if (e.matches) {
     closeMenu();
   }
@@ -235,6 +236,12 @@ lightboxNextButton.addEventListener("click", () => {
 
   updateLightboxImage(nextImageId);
   updateLightboxThumbnailSelected(nextImageId);
+});
+
+tabletMediaQuery.addEventListener("change", (e) => {
+  if (e.matches) {
+    lightbox.classList.add("hidden");
+  }
 });
 
 quantityDecrementButton.addEventListener("click", () => {

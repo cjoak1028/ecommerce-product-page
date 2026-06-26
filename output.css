@@ -1070,6 +1070,11 @@
       width: calc(var(--spacing) * 112);
     }
   }
+  .lg\:cursor-pointer {
+    @media (width >= 64rem) {
+      cursor: pointer;
+    }
+  }
   .lg\:flex-row {
     @media (width >= 64rem) {
       flex-direction: row;
