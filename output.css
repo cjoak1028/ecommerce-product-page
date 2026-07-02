@@ -10,6 +10,7 @@
       "Courier New", monospace;
     --color-orange-300: #ffab6a;
     --color-orange-500: #ff7e1b;
+    --color-gray-500: oklch(55.1% 0.027 264.364);
     --color-black: #000;
     --color-white: #fff;
     --spacing: 0.25rem;
@@ -182,6 +183,9 @@
   }
 }
 @layer utilities {
+  .visible {
+    visibility: visible;
+  }
   .sr-only {
     position: absolute;
     width: 1px;
@@ -321,6 +325,24 @@
   }
   .z-24 {
     z-index: 24;
+  }
+  .container {
+    width: 100%;
+    @media (width >= 40rem) {
+      max-width: 40rem;
+    }
+    @media (width >= 48rem) {
+      max-width: 48rem;
+    }
+    @media (width >= 64rem) {
+      max-width: 64rem;
+    }
+    @media (width >= 80rem) {
+      max-width: 80rem;
+    }
+    @media (width >= 96rem) {
+      max-width: 96rem;
+    }
   }
   .m-auto {
     margin: auto;
@@ -626,6 +648,9 @@
   .bg-white {
     background-color: var(--color-white);
   }
+  .fill-gray-500 {
+    fill: var(--color-gray-500);
+  }
   .fill-grey-500 {
     fill: var(--color-grey-500);
   }
@@ -768,6 +793,13 @@
   .outline-none {
     --tw-outline-style: none;
     outline-style: none;
+  }
+  .group-hover\:fill-black {
+    &:is(:where(.group):hover *) {
+      @media (hover: hover) {
+        fill: var(--color-black);
+      }
+    }
   }
   .group-hover\:fill-grey-950 {
     &:is(:where(.group):hover *) {

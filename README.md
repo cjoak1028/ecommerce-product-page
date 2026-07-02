@@ -1,22 +1,24 @@
-# Frontend Mentor - E-commerce product page
+# Frontend Mentor - E-commerce product page solution
 
-![Design preview for the E-commerce product page coding challenge](./design/desktop-preview.jpg)
+This is a solution to the [E-commerce product page challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/ecommerce-product-page-UPsZ9MJp6). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
-## Welcome! 👋
+## Table of contents
 
-Thanks for checking out this front-end coding challenge.
+- [Overview](#overview)
+  - [The challenge](#the-challenge)
+  - [Screenshot](#screenshot)
+  - [Links](#links)
+- [My process](#my-process)
+  - [Built with](#built-with)
+  - [What I learned](#what-i-learned)
+  - [Useful resources](#useful-resources)
+- [Author](#author)
 
-[Frontend Mentor](https://www.frontendmentor.io) challenges help you improve your coding skills by building realistic projects.
+## Overview
 
-**To do this challenge, you need a good understanding of HTML, CSS and JavaScript.**
+### The challenge
 
-## The challenge
-
-Your challenge is to build out this e-commerce product page and get it looking as close to the design as possible.
-
-You can use any tools you like to help you complete the challenge. So if you've got something you'd like to practice, feel free to give it a go.
-
-Your users should be able to:
+Users should be able to:
 
 - View the optimal layout for the site depending on their device's screen size
 - See hover states for all interactive elements on the page
@@ -25,85 +27,188 @@ Your users should be able to:
 - Add items to the cart
 - View the cart and remove items from it
 
-### Want some support on the challenge? 
+### Screenshot
 
-[Join our community](https://www.frontendmentor.io/community) and ask questions in the **#help** channel.
+![](./screenshots/mobile_ss.png)
+![](./screenshots/desktop_ss.png)
 
-## Where to find everything
+### Links
 
-Your task is to build out the project to the designs inside the `/design` folder. You will find both a mobile and a desktop version of the design.
+- Solution URL: [Solution Link](https://github.com/cjoak1028/ecommerce-product-page)
+- Live Site URL: [Demo Link](https://ecommerce-product-page-three-flax.vercel.app/)
 
-The designs are in JPG static format. Using JPGs will mean that you'll need to use your best judgment for styles such as `font-size`, `padding` and `margin`.
+## My process
 
-If you would like the Figma design file to gain experience using professional tools and build more accurate projects faster, you can [subscribe as a PRO member](https://www.frontendmentor.io/pro).
+### Built with
 
-You will find all the required assets in the `/images` folder. The assets are already optimized.
+- Semantic HTML5 markup
+- Tailwind CSS
+- Flexbox
+- Mobile-first workflow
 
-There is also a `style-guide.md` file containing the information you'll need, such as color palette and fonts.
+### What I learned
 
-## Using AI coding assistants
+## `object-fit` & `object-position`
 
-We've included two files to help you if you're using AI coding assistants (like Claude, GitHub Copilot, Cursor, etc.) while working on this challenge:
+I learned that `object-fit` controls how an image is resized within its container, while `object-position` controls which part of the image remains visible when it is cropped.
 
-- `AGENTS.md` - Contains detailed instructions for AI assistants on how to help you with this challenge. It's tailored to this challenge's difficulty level, so the AI will provide guidance appropriate to your learning stage—offering more support for beginner challenges and encouraging more independence on advanced ones.
-- `CLAUDE.md` - A pointer file that directs Claude-based tools to the AGENTS.md instructions.
+For example, using `object-cover` fills the entire container while preserving the image's aspect ratio. If the aspect ratios differ, part of the image will be cropped. `object-center` ensures the crop is centered.
 
-**How to use them:** You don't need to do anything! These files are automatically detected by most AI coding tools. The AI will read them and adjust its behavior to be a better learning partner—guiding you toward solutions rather than just giving you the answers.
+```html
+<img
+  src="./images/image-product-2-thumbnail.jpg"
+  alt=""
+  class="w-full h-full object-cover object-center peer-checked:opacity-50"
+/>
+```
 
-**Note:** These files are designed to help you *learn*, not to do the work for you. The AI is instructed to ask questions, give hints, and explain concepts rather than writing complete solutions.
+> **Note:** `object-fit` only has an effect when the image's rendered dimensions are constrained (e.g., by giving the image or its parent a defined width and height).
 
-## Building your project
+## The `<fieldset>` Element
 
-Feel free to use any workflow that you feel comfortable with. Below is a suggested process, but do not feel like you need to follow these steps:
+I learned that the `<fieldset>` element semantically groups related form controls under a common purpose. Although it is commonly used inside forms, it can also be used outside of a form to group related interactive controls.
 
-1. Initialize your project as a public repository on [GitHub](https://github.com/). Creating a repo will make it easier to share your code with the community if you need help. If you're not sure how to do this, [have a read-through of this Try Git resource](https://try.github.io/).
-2. Configure your repository to publish your code to a web address. This will also be useful if you need some help during a challenge as you can share the URL for your project with your repo URL. There are a number of ways to do this, and we provide some recommendations below.
-3. Look through the designs to start planning out how you'll tackle the project. This step is crucial to help you think ahead for CSS classes to create reusable styles.
-4. Before adding any styles, structure your content with HTML. Writing your HTML first can help focus your attention on creating well-structured content.
-5. Write out the base styles for your project, including general content styles, such as `font-family` and `font-size`.
-6. Start adding styles to the top of the page and work down. Only move on to the next section once you're happy you've completed the area you're working on.
+In this project, I used a `<fieldset>` to group the product image thumbnails because they function as a single set of mutually exclusive radio buttons for selecting the active product image.
 
-## Deploying your project
+```html
+<fieldset id="product-thumbnails-main">
+  <legend class="sr-only">Choose product image</legend>
+  <label>
+    <input
+      type="radio"
+      name="main-product-image"
+      value="1"
+      checked
+      class="sr-only peer"
+    />
+    <img src="./images/image-product-1-thumbnail.jpg" alt="" />
+  </label>
+</fieldset>
+```
 
-As mentioned above, there are many ways to host your project for free. Our recommended hosts are:
+## `has-*`
 
-- [GitHub Pages](https://pages.github.com/)
-- [Vercel](https://vercel.com/)
-- [Netlify](https://www.netlify.com/)
+The `has-*` variant lets you style a parent element based on the state of one of its descendants. This is useful when a child element (such as a checked radio button or focused input) should control the appearance of its container.
 
-You can host your site using one of these solutions or any of our other trusted providers. [Read more about our recommended and trusted hosts](https://www.frontendmentor.io/guides/hosting-your-solution).
+In this project, I used `has-checked:*` to highlight the selected product thumbnail by styling the surrounding `<label>` when its radio button is checked.
 
-## Create a custom `README.md`
+```html
+<label class="has-checked:border-2 has-checked:border-orange-500 rounded-lg">
+  <input type="radio" class="sr-only" />
+  <img src="./images/image-product-1-thumbnail.jpg" alt="" />
+</label>
+```
 
-We strongly recommend overwriting this `README.md` with a custom one. We've provided a template inside the [`README-template.md`](./README-template.md) file in this starter code.
+## `peer`, `peer-*`, and `peer-has-*`
 
-The template provides a guide for what to add. A custom `README` will help you explain your project and reflect on your learnings. Please feel free to edit our template as much as you like.
+The `peer` utility allows an element to be styled based on the state of a sibling. The element being observed is marked with the `peer` class, and its siblings can respond using variants such as `peer-checked:*`, `peer-focus:*`, or `peer-has:*`.
 
-Once you've added your information to the template, delete this file and rename the `README-template.md` file to `README.md`. That will make it show up as your repository's README file.
+In this project, I used `peer-checked:*` to reduce the thumbnail's opacity whenever its associated radio button was selected.
 
-## Submitting your solution
+```html
+<label>
+  <input type="radio" class="sr-only peer" checked />
+  <img
+    src="./images/image-product-1-thumbnail.jpg"
+    class="peer-checked:opacity-50"
+    alt=""
+  />
+</label>
+```
 
-Submit your solution on the platform for the rest of the community to see. Follow our ["Complete guide to submitting solutions"](https://www.frontendmentor.io/guides/how-to-submit-solutions) for tips on how to do this.
+## `group` and `group-*`
 
-Remember, if you're looking for feedback on your solution, be sure to ask questions when submitting it. The more specific and detailed you are with your questions, the higher the chance you'll get valuable feedback from the community.
+The `group` utility lets child elements respond to the state of a parent element. This is commonly used for hover, focus, and active effects that involve multiple elements.
 
-## Sharing your solution
+In this project, I used `group-hover:*` so the cart icon changes color whenever the user hovers over the button, rather than the SVG itself.
 
-There are multiple places you can share your solution:
+```html
+<button class="group">
+  <svg class="fill-gray-500 group-hover:fill-black">...</svg>
+</button>
+```
 
-1. Share your solution page in the **#finished-projects** channel of the [community](https://www.frontendmentor.io/community). 
-2. Share on [X (formerly Twitter)](https://x.com/frontendmentor) and mention **@frontendmentor**, including the repo and live URLs in your post. We'd love to take a look at what you've built and help share it around.
-3. Share your solution on [LinkedIn](https://www.linkedin.com/company/frontend-mentor/).
-4. Blog about your experience building your project. Writing about your workflow, technical choices, and talking through your code is a brilliant way to reinforce what you've learned. Great platforms to write on are [dev.to](https://dev.to/), [Hashnode](https://hashnode.com/), and [CodeNewbie](https://community.codenewbie.org/).
+## Elements vs. Pseudo-elements
 
-We provide templates to help you share your solution once you've submitted it on the platform. Please do edit them and include specific questions when you're looking for feedback. 
+I learned that pseudo-elements (`::before` and `::after`) are best suited for purely presentational content, whereas real HTML elements should be used whenever the content has semantic meaning or requires user interaction.
 
-The more specific you are with your questions the more likely it is that another member of the community will give you feedback.
+## Custom Number Input
 
-## Got feedback for us?
+I learned that browser number inputs include default styles that differ across browsers. To create a consistent, custom-styled number input, these default styles need to be removed.
 
-We love receiving feedback! We're always looking to improve our challenges and our platform. So if you have anything you'd like to mention, please email hi[at]frontendmentor[dot]io.
+```html
+<input
+  type="number"
+  class="outline-none appearance-none
+         [&::-webkit-inner-spin-button]:appearance-none
+         [&::-webkit-outer-spin-button]:appearance-none
+         [MozAppearance:textfield]"
+/>
+```
 
-This challenge is completely free. Please share it with anyone who will find it useful for practice.
+### Utilities used
 
-**Have fun building!** 🚀
+- **`outline-none`**
+  - Removes the browser's default focus outline. If removed, a custom focus indicator should be provided to maintain keyboard accessibility.
+
+- **`appearance-none`**
+  - Removes the browser's default styling, allowing the input to be fully customized.
+
+- **`[&::-webkit-inner-spin-button]` and `[&::-webkit-outer-spin-button]`**
+  - Tailwind arbitrary variants that target Chrome, Edge, and Safari's increment/decrement controls, allowing their default appearance to be removed.
+
+- **`[MozAppearance:textfield]`**
+  - A Tailwind arbitrary property that changes Firefox's number input to look like a standard text field, since Firefox doesn't expose the same pseudo-elements as WebKit browsers.
+
+## `Element.closest()`
+
+I learned that `Element.closest()` traverses up the DOM tree, starting from the current element, and returns the nearest ancestor (or the element itself) that matches a given CSS selector.
+
+```js
+const deleteButton = event.target.closest(".cart-delete-button");
+
+if (deleteButton) {
+  // Handle delete action
+}
+```
+
+This is especially useful with event delegation, where the event may originate from a nested element (such as an SVG or icon) instead of the element you're interested in.
+
+> **Note:** Use `closest()` when you need to find the nearest matching ancestor of an element.
+
+## `Node.contains()`
+
+I learned that `Node.contains()` checks whether one element is contained within another, including the element itself.
+
+```js
+if (!menu.contains(event.target)) {
+  closeMenu();
+}
+```
+
+In this project, I used `contains()` to determine whether a click occurred outside of an element so that it could be dismissed.
+
+> **Note:** Use `contains()` when implementing "click outside" behavior for menus, modals, dropdowns, and other overlays.
+
+## `FormData`
+
+I learned that the `FormData` API provides an easy way to retrieve the values of form controls without manually querying each input.
+
+```js
+const formData = new FormData(form);
+const quantity = Number(formData.get("quantity"));
+```
+
+`FormData` automatically collects the values of successful form controls using their `name` attributes, making it especially useful when working with forms containing multiple inputs.
+
+> **Note:** Use `FormData` to read form values in a structured way instead of manually accessing each input.
+
+### Useful resources
+
+- [MDN](https://developer.mozilla.org/en-US/)
+- [Tailwind Docs](https://tailwindcss.com/)
+
+## Author
+
+- Website - [CJ Kim](https://cjkim.dev/)
+- Frontend Mentor - [@cjoak1028](https://www.frontendmentor.io/profile/cjoak1028)
