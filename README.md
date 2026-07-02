@@ -46,9 +46,9 @@ Users should be able to:
 - Flexbox
 - Mobile-first workflow
 
-### What I learned
+## What I learned
 
-## `object-fit` & `object-position`
+### `object-fit` & `object-position`
 
 I learned that `object-fit` controls how an image is resized within its container, while `object-position` controls which part of the image remains visible when it is cropped.
 
@@ -64,7 +64,7 @@ For example, using `object-cover` fills the entire container while preserving th
 
 > **Note:** `object-fit` only has an effect when the image's rendered dimensions are constrained (e.g., by giving the image or its parent a defined width and height).
 
-## The `<fieldset>` Element
+### The `<fieldset>` Element
 
 I learned that the `<fieldset>` element semantically groups related form controls under a common purpose. Although it is commonly used inside forms, it can also be used outside of a form to group related interactive controls.
 
@@ -86,7 +86,7 @@ In this project, I used a `<fieldset>` to group the product image thumbnails bec
 </fieldset>
 ```
 
-## `has-*`
+### `has-*`
 
 The `has-*` variant lets you style a parent element based on the state of one of its descendants. This is useful when a child element (such as a checked radio button or focused input) should control the appearance of its container.
 
@@ -99,7 +99,7 @@ In this project, I used `has-checked:*` to highlight the selected product thumbn
 </label>
 ```
 
-## `peer`, `peer-*`, and `peer-has-*`
+### `peer`, `peer-*`, and `peer-has-*`
 
 The `peer` utility allows an element to be styled based on the state of a sibling. The element being observed is marked with the `peer` class, and its siblings can respond using variants such as `peer-checked:*`, `peer-focus:*`, or `peer-has:*`.
 
@@ -116,7 +116,7 @@ In this project, I used `peer-checked:*` to reduce the thumbnail's opacity whene
 </label>
 ```
 
-## `group` and `group-*`
+### `group` and `group-*`
 
 The `group` utility lets child elements respond to the state of a parent element. This is commonly used for hover, focus, and active effects that involve multiple elements.
 
@@ -128,11 +128,11 @@ In this project, I used `group-hover:*` so the cart icon changes color whenever 
 </button>
 ```
 
-## Elements vs. Pseudo-elements
+### Elements vs. Pseudo-elements
 
 I learned that pseudo-elements (`::before` and `::after`) are best suited for purely presentational content, whereas real HTML elements should be used whenever the content has semantic meaning or requires user interaction.
 
-## Custom Number Input
+### Custom Number Input
 
 I learned that browser number inputs include default styles that differ across browsers. To create a consistent, custom-styled number input, these default styles need to be removed.
 
@@ -146,7 +146,7 @@ I learned that browser number inputs include default styles that differ across b
 />
 ```
 
-### Utilities used
+#### Utilities used
 
 - **`outline-none`**
   - Removes the browser's default focus outline. If removed, a custom focus indicator should be provided to maintain keyboard accessibility.
@@ -160,7 +160,7 @@ I learned that browser number inputs include default styles that differ across b
 - **`[MozAppearance:textfield]`**
   - A Tailwind arbitrary property that changes Firefox's number input to look like a standard text field, since Firefox doesn't expose the same pseudo-elements as WebKit browsers.
 
-## `Element.closest()`
+### `Element.closest()`
 
 I learned that `Element.closest()` traverses up the DOM tree, starting from the current element, and returns the nearest ancestor (or the element itself) that matches a given CSS selector.
 
@@ -176,7 +176,7 @@ This is especially useful with event delegation, where the event may originate f
 
 > **Note:** Use `closest()` when you need to find the nearest matching ancestor of an element.
 
-## `Node.contains()`
+### `Node.contains()`
 
 I learned that `Node.contains()` checks whether one element is contained within another, including the element itself.
 
@@ -190,7 +190,7 @@ In this project, I used `contains()` to determine whether a click occurred outsi
 
 > **Note:** Use `contains()` when implementing "click outside" behavior for menus, modals, dropdowns, and other overlays.
 
-## `FormData`
+### `FormData`
 
 I learned that the `FormData` API provides an easy way to retrieve the values of form controls without manually querying each input.
 
@@ -203,7 +203,7 @@ const quantity = Number(formData.get("quantity"));
 
 > **Note:** Use `FormData` to read form values in a structured way instead of manually accessing each input.
 
-### Useful resources
+#### Useful resources
 
 - [MDN](https://developer.mozilla.org/en-US/)
 - [Tailwind Docs](https://tailwindcss.com/)
