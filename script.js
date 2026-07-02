@@ -131,6 +131,27 @@ const renderCart = () => {
   updateCountBadge(totalCartCount);
 };
 
+const getAdjacentImageId = (curId, direction) => {
+  let newId = curId;
+  if (direction === "next") {
+    newId++;
+
+    if (newId > 4) {
+      newId = 1;
+    }
+  } else if (direction === "prev") {
+    newId--;
+
+    if (newId < 1) {
+      newId = 4;
+    }
+  } else {
+    throw new Error("Invalid direction");
+  }
+
+  return newId;
+};
+
 menuOpenButton.addEventListener("click", () => {
   openMenu();
 });
@@ -160,11 +181,7 @@ productThumbnailsMain.addEventListener("change", (e) => {
 
 mainPrevButton.addEventListener("click", () => {
   const curImageId = +productImageMain.dataset.id;
-  let prevImageId = curImageId - 1;
-
-  if (prevImageId < 1) {
-    prevImageId = 4;
-  }
+  const prevImageId = getAdjacentImageId(curImageId, "prev");
 
   updateMainImage(prevImageId);
   updateLightboxImage(prevImageId);
@@ -175,11 +192,7 @@ mainPrevButton.addEventListener("click", () => {
 
 mainNextButton.addEventListener("click", () => {
   const curImageId = +productImageMain.dataset.id;
-  let nextImageId = curImageId + 1;
-
-  if (nextImageId > 4) {
-    nextImageId = 1;
-  }
+  const nextImageId = getAdjacentImageId(curImageId, "next");
 
   updateMainImage(nextImageId);
   updateLightboxImage(nextImageId);
@@ -216,11 +229,7 @@ productThumbnailsLightbox.addEventListener("change", (e) => {
 
 lightboxPrevButton.addEventListener("click", () => {
   const curImageId = +productImageLightbox.dataset.id;
-  let prevImageId = curImageId - 1;
-
-  if (prevImageId < 1) {
-    prevImageId = 4;
-  }
+  const prevImageId = getAdjacentImageId(curImageId, "prev");
 
   updateLightboxImage(prevImageId);
   updateLightboxThumbnailSelected(prevImageId);
@@ -228,11 +237,7 @@ lightboxPrevButton.addEventListener("click", () => {
 
 lightboxNextButton.addEventListener("click", () => {
   const curImageId = +productImageLightbox.dataset.id;
-  let nextImageId = curImageId + 1;
-
-  if (nextImageId > 4) {
-    nextImageId = 1;
-  }
+  const nextImageId = getAdjacentImageId(curImageId, "next");
 
   updateLightboxImage(nextImageId);
   updateLightboxThumbnailSelected(nextImageId);
@@ -240,6 +245,7 @@ lightboxNextButton.addEventListener("click", () => {
 
 tabletMediaQuery.addEventListener("change", (e) => {
   if (e.matches) {
+    document.body.classList.add("overflow-hidden");
     lightbox.classList.add("hidden");
   }
 });
@@ -282,7 +288,7 @@ cartContent.addEventListener("click", (e) => {
   e.stopPropagation();
 
   let itemDeleteIndex = CART.findIndex(
-    (item) => item.id === deleteButton.dataset["product-id"],
+    (item) => item.id === +deleteButton.dataset["product-id"],
   );
   CART.splice(itemDeleteIndex, 1);
 

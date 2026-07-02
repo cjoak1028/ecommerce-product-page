@@ -4,7 +4,8 @@
   "description": "![Design preview for the E-commerce product page coding challenge](./design/desktop-preview.jpg)",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "npx @tailwindcss/cli -i ./src/input.css -o ./output.css --watch",
+    "build": "npx @tailwindcss/cli -i ./src/input.css -o ./output.css"
   },
   "repository": {
     "type": "git",
